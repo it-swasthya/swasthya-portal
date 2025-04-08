@@ -10,11 +10,15 @@ Backend/package-lock.json
 # =========================
 # React Frontend ignores
 # =========================
-Frontend/ node_modules/
-Frontend/ .DS_Store
-Frontend/ npm-debug.log
-Frontend/ package-lock.json
-Frontend/ build/
+# =========================
+# React Frontend ignores
+# =========================
+Frontend/node_modules/
+Frontend/.DS_Store
+Frontend/npm-debug.log
+Frontend/package-lock.json
+Frontend/build/
+
 
 # =========================
 # OS / Editor ignores
