@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+font-family: Outfit;
+  }
+
+:root {
+    /* Fonts Family */
+  --Roboto-sans:"Roboto", sans-serif;
+
+  --open-sans: "Raleway", sans-serif;
+
+    /* Colors */
+    --light-black: #151515;
+    --light-red: #e3000e;
+    --grey: #757575;
+    --white: #fff;
+    --main-green:rgb(102,194,142) ;
+    --dark-green:#14532d;
+  }
+
+  body , html{
+    font-size: 1rem;
+    font-family: var(--open-sans);
+    font-weight: 300;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+  }
+  h1,h2,h3,h4,h5{
+    font-family: var(--open-sans);
+    text-transform: uppercase;
+    line-height: 1;
+    color: black;
+  }
+
+  /* p{
+    font-size: 12px;
+  } */
+
+
+  @media (max-width: 992px) {
+    body, html {
+      font-size: 0.875rem;
+    }
+  }
+
+  a{
+    text-decoration: none !important;
+    color: var(--light-black);
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    -ms-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+  }
+
+  ::-webkit-scrollbar{
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track{
+    background: var(--light-grey);
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background: var(--dark-green);
+  }
+
+
+form{
+  font-family: var(--open-sans);
+}
