@@ -3,7 +3,9 @@ import authRoutes from './routes/auth.routes.js';
 import cartRoutes from './routes/cart.routes.js';
 import { sequelize } from './config/db.js';
 import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser'; 
+import cookieParser from 'cookie-parser';
+import paymentRoutes from './routes/payment.routes.js'
+import invoicesRoutes from './routes/invoice.routes.js'
 
 dotenv.config();
 
@@ -19,6 +21,9 @@ app.get("/ping", (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use("/api/cart", cartRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/invoice',invoicesRoutes);
+
 
 
 sequelize.sync({ alter: true })
