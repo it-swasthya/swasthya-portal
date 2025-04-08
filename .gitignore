@@ -1,0 +1,37 @@
+# =========================
+# Node.js Backend ignores
+# =========================
+Backend/node_modules/
+Backend/.env
+Backend/.DS_Store
+Backend/npm-debug.log
+Backend/package-lock.json
+
+# =========================
+# React Frontend ignores
+# =========================
+Frontend/node_modules/
+Frontend/.DS_Store
+Frontend/npm-debug.log
+Frontend/package-lock.json
+Frontend/build/
+
+# =========================
+# OS / Editor ignores
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Log files
+# =========================
+*.log
+*.tgz
+
+# =========================
+# Others (optional)
+# =========================
+.env.local
+.env.*.local
