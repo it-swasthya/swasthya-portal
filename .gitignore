@@ -37,4 +37,5 @@ Thumbs.db
 .env.local
 .env.*.local
 
-.key
+key
+key.pub
