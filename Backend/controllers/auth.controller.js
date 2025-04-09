@@ -109,7 +109,7 @@ export const checkMeLoggedin = async (req, res) => {
     }
 
     const user = await User.findByPk(userId, {
-      attributes: ["User_id", "email", "first_name", "last_name"]
+      attributes: ["User_id", "email", "first_name", "last_name" ,"termsAccepted"]
     });
 
     if (!user) {
@@ -121,7 +121,8 @@ export const checkMeLoggedin = async (req, res) => {
       user: {
         id: user.User_id,
         email: user.email,
-        name: `${user.first_name} ${user.last_name}`
+        name: `${user.first_name} ${user.last_name}`,
+        termsAccepted: user.termsAccepted
       }
     });
   } catch (err) {
@@ -178,3 +179,54 @@ export const refreshTokenHandler = async (req, res) => {
     return res.status(403).json({ message: 'Invalid or expired refresh token' });
   }
 };
+
+
+export const updateUserProfile = async (req,res) =>{
+    try {
+
+      const userId = req.params.id;
+      
+    const {
+      first_name,
+      last_name,
+      contact,
+      alternate_contact,
+      date_of_birth,
+      address,
+      pincode,
+      state
+    } = req.body;
+
+      const user = await User.findByPk(userId);
+      if(!user) return res.status(404).json({message:"user not found"});
+    
+      user.first_name = first_name || user.first_name;
+      user.last_name = last_name || user.last_name;
+      user.contact = contact || user.contact;
+      user.alternate_contact = alternate_contact || user.alternate_contact;
+      user.date_of_birth = date_of_birth || user.date_of_birth;
+      user.address = address || user.address;
+      user.pincode = pincode || user.pincode;
+      user.state = state || user.state;
+
+
+      await user.save();
+
+      return res.status(200).json({message:"User profile updated succefully",
+        id: user.User_id,
+        name:`${user.first_name} ${user.last_name}`,
+        contact:user.contact,
+        alternate_contact:user.alternate_contact,
+        date_of_birth: user.date_of_birth,
+        address:user.address,
+        pinocde:user.pincode,
+        state:user.state,
+      },
+      );
+
+    } catch (error) {
+      console.log(error,"Error in updating user profile");
+      res.status(401).json({message:"Error in updating user profile"});
+
+    }
+}

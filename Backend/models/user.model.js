@@ -17,6 +17,11 @@ export const User = sequelize.define('User', {
   address: { type: DataTypes.STRING, allowNull: false },
   pincode: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 999999 },
   state: { type: DataTypes.STRING, allowNull: false, defaultValue: "Unknown" },
+  termsAccepted: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false
+  },
   refresh_token: { type: DataTypes.TEXT, allowNull: true },
 
 });
