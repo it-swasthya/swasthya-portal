@@ -1,68 +1,64 @@
+// controllers/payment.controller.js
 import Razorpay from "razorpay";
+import crypto from "crypto";
 import { Payment } from "../models/payment.model.js";
-import { Cart } from "../models/cart.model.js";
-import { User } from "../models/user.model.js";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
-
 
 const razorPay = new Razorpay({
   key_id: process.env.RAZOR_PAY_ID,
   key_secret: process.env.RAZOR_PAY_SECRET_KEY,
 });
 
-// Generate Razorpay Order
+// Create Razorpay Order
 export const generateOrder = async (req, res) => {
   try {
     const { amount } = req.body;
 
     const order = await razorPay.orders.create({
-      amount: amount * 100,
+      amount, // amount in paise
       currency: "INR",
+      receipt: "receipt_" + Math.random().toString(36).substring(7),
+      payment_capture: 1, // Auto-capture payment
     });
 
     return res.status(200).json({
       success: true,
-      data: {
-        order_id: order.id,
-        amount: order.amount,
-        currency: order.currency,
-        created_at: order.created_at,
-      },
+      order,
     });
   } catch (error) {
     return res.status(500).json({ success: false, error: error.message });
   }
 };
 
-// Capture Payment (when successful)
+// Verify Payment Signature & Store in DB
 export const capturePayment = async (req, res) => {
   try {
     const {
+      razorpay_order_id,
       razorpay_payment_id,
-      order_id,
-      cart_id,
-      amount,
-      base_amount,
-      discount = 0,
-      cgst = 0,
-      sgst = 0,
-      igst = 0,
-      payment_method,
-      fp_gstn,
-      customer_gstn,
-      state,
-      state_code,
-      gateway_fees = 0,
-      refund_id = null,
-      refund_amount = 0,
+      razorpay_signature,
     } = req.body;
 
     const user_id = req.user.id;
 
+    // Signature verification
+    const body = `${razorpay_order_id}|${razorpay_payment_id}`;
+    const expectedSignature = crypto
+      .createHmac("sha256", process.env.RAZOR_PAY_SECRET_KEY)
+      .update(body.toString())
+      .digest("hex");
+
+    const isAuthentic = expectedSignature === razorpay_signature;
+
+    if (!isAuthentic) {
+      return res.status(400).json({ success: false, message: "Invalid signature!" });
+    }
+
+    // Save payment to DB
     const payment = await Payment.create({
       user_id,
-      order_id: cart_id,
+      order_id: cart_id, 
       razorpay_payment_id,
       amount,
       base_amount,
@@ -83,7 +79,7 @@ export const capturePayment = async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      message: "Payment recorded successfully!",
+      message: "Payment verified and recorded successfully!",
       data: payment,
     });
   } catch (error) {
