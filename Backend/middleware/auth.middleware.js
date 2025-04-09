@@ -4,6 +4,7 @@ dotenv.config();
 
 export const authenticate = (req, res, next) => {
   const token = req.cookies?.accessToken;
+  console.log(token);
 
   if (!token) return res.status(401).json({ message: "Access token missing" });
 
