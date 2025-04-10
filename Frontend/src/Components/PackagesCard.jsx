@@ -1,6 +1,5 @@
 import Card from 'react-bootstrap/Card';
 import { Col } from 'react-bootstrap';
-
 function PackagesCard({ data }) {
   return (
     <Col lg={4} md={6} sm={12} className="mt-3 mb-4 a">

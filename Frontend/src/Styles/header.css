@@ -1,14 +1,12 @@
 /* General Navbar */
-header{
-}
+
 header .navbar {
   position: fixed;
   width: 100%;
   background-color: var(--white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   height: 60px;
-  z-index: 10;
-  z-index:10000;
+  z-index: 9999;
 
 }
 
@@ -25,13 +23,14 @@ header a, .nav-link {
   transition: all 0.3s ease-in-out;
 }
 
+header  .nav-link:active {
+  color: var(--dark-green) !important;
 
-header a:hover, .nav-link:hover {
-  color: var(--grey);
 }
 
+
+
 .offcanvas-body .nav a {
-  color: var(--dark-green);
   font-weight: 600;
   font-size: 1.2rem;
   text-transform: uppercase;

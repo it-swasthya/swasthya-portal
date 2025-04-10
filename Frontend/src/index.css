@@ -12,6 +12,15 @@
 font-family: Outfit;
   }
 
+input::-ms-reveal,
+input::-ms-clear,
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-inner-spin-button,
+input::-webkit-clear-button,
+input::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+
 :root {
     /* Fonts Family */
   --Roboto-sans:"Roboto", sans-serif;
@@ -41,10 +50,6 @@ font-family: Outfit;
     line-height: 1;
     color: black;
   }
-
-  /* p{
-    font-size: 12px;
-  } */
 
 
   @media (max-width: 992px) {

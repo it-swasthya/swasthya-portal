@@ -26,14 +26,13 @@ const SwitchButton = ({ TestType }) => {
   };
 
   return (
-    <Container className="parent-container items-center mt-5 p-4 rounded shadow-lg">
+    <Container className="parent-container items-center mt-5 p-2 rounded shadow-lg">
   {/* Header */}
   <div className="text-center mb-5">
     <h1 className="display-4 text-success fw-bold">Test and Prescription</h1>
     <p className="lead text-muted">Choose your preferred option below.</p>
   </div>
 
-  {/* Row for Buttons - Centering the Buttons */}
   <Row className="mb-4 d-flex justify-content-center align-items-center g-3">
     {/* Button for 'Search by Test' */}
     <Col xs={12} sm={4} className="p-0 d-flex justify-content-center">

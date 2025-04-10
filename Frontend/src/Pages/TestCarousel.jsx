@@ -96,7 +96,7 @@ const TestCarousel = () => {
       </div>
 
       {/* Conditionally render either the Cards or the TestWithPrices component */}
-      <Container className="card_parent " ref={testSectionRef}>
+      <Container ref={testSectionRef}>
         {showCards ? (
           <Row id="tests">{memoizedPackages}</Row>
         ) :  <SwitchButton  TestType={testType} showCards={showCards} showtable={showtable} />

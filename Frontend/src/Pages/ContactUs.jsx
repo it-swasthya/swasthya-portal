@@ -122,7 +122,7 @@ export default function Contact() {
           <div className="w-full md:w-[450px] text-white" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="600">
             <div className="space-y-6 text-center md:text-left">
               <p className="font-semibold text-lg md:text-2xl text-[#d1f2eb]">
-                <span className="text-[#f1c40f]">OUR OFFICE:</span> Kh. 382 Plot No4, 1st Floor, Sultanpur, New Delhi, Delhi 110030
+                <span className="text-[#f1c40f]">OUR OFFICE:</span>Sultanpur, New Delhi, Delhi 110030
               </p>
 
               <div className="h-[300px] w-full md:w-[500px] mx-auto md:mx-0 mb-2 rounded-xl overflow-hidden">
@@ -141,7 +141,7 @@ export default function Contact() {
 
       {/* Section: Join the Revolution */}
       <section className="bg-gradient-to-r from-[#9bc7ae] to-[#178066] py-16 px-6 sm:px-10 md:px-16 lg:px-32 xl:px-40 2xl:px-48 mb-10 flex flex-col md:flex-row items-center text-white gap-10">
-        <div className="md:w-2/3 flex justify-center mb-6 md:mb-0" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="300">
+        <div className="md:w-2/3 flex justify-center mb-6 md:mb-0" data-aos="fade-right" data-aos-duration="1200">
           <img src={assets.joinUs} alt="Join Us" className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl" />
         </div>
 

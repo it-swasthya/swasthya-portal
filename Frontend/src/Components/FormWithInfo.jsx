@@ -1,13 +1,9 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-
 import QueryForm from '../Pages/Form';
 import InfoDisplayComponent from '../Pages/information';
 
-
 const FormWithInfo = () => {
-  
-
   return (
     <Container fluid className="formWithInfo-container mt-5">
       <Row className="justify-content-center sm-3 gap-2 ">

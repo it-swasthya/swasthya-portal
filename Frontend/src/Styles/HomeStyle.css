@@ -727,3 +727,18 @@ h1 {
     width: 90%; /* Ensure buttons are not too wide */
   }
 }
+
+
+@media (min-width: 860px) {
+.cart-container{
+  margin-top: 6rem !important;
+}
+}
+
+
+@media (max-width: 860px) {
+  .register_form_container{
+    margin-top: 6rem !important;
+  }
+  }
+  

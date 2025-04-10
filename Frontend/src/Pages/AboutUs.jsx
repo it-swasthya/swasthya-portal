@@ -81,10 +81,10 @@ const About = () => {
       ].map((title, index) => (
         <div 
           key={index} 
-          className="hover:bg-black hover:bg-opacity-30 bg-stone-900 bg-opacity-60 p-6 rounded-2xl shadow-xl text-white transition duration-300 hover:scale-105 flex flex-col justify-between h-full"
+          className="hover:bg-black hover:bg-opacity-30 bg-stone-900 bg-opacity-60 p-6 rounded-2xl shadow-xl  transition duration-300 hover:scale-105 flex flex-col justify-between h-full"
         >
           <h3 className="text-xl md:text-2xl font-semibold mb-3">{title}</h3>
-          <p className="text-sm md:text-base flex-grow">
+          <p className="text-sm md:text-base flex-grow text-white">
             {[
               "A Complete Healthcare Ecosystem – Book lab tests, consult doctors, and track your health—all in one place.",
               "Not sure which test you need? Our system expert help you choose the right one.",
